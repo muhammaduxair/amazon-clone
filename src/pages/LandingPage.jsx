@@ -2,15 +2,17 @@ import { useState } from "react";
 import styled from "styled-components";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
-import HomeCards from "./HomeCards";
-import DealsCard from "./DealsCard";
+import HomeCards from "../components/HomeCards";
+import DealsCard from "../components/DealsCard";
 import { coverImageSrc, ContentData } from "../Data/MainPageData";
+import SEO from "../components/SEO";
 
-const Content = ({ className }) => {
+const LandingPage = ({ className }) => {
   const [coverIndex, setCoverIndex] = useState(0);
 
   return (
     <ContentWrapper imgURL={coverImageSrc[coverIndex]}>
+      <SEO title="Amazon Clone | Develop by Muhammad Uzair" />
       <div className="banner_slider"></div>
       <div className="arrow_container">
         <ArrowBackIosIcon
@@ -32,41 +34,11 @@ const Content = ({ className }) => {
         </div>
         <div className="cardBox">
           <span className="row">
-            <div className="card">
-              <DealsCard
-                title={ContentData[0].title}
-                imgSrc={ContentData[0].imgSrc}
-                link={ContentData[0].link}
-              />
-            </div>
-            <div className="card">
-              <DealsCard
-                title={ContentData[0].title}
-                imgSrc={ContentData[0].imgSrc}
-                link={ContentData[0].link}
-              />
-            </div>
-            <div className="card">
-              <DealsCard
-                title={ContentData[0].title}
-                imgSrc={ContentData[0].imgSrc}
-                link={ContentData[0].link}
-              />
-            </div>
-            <div className="card">
-              <DealsCard
-                title={ContentData[0].title}
-                imgSrc={ContentData[0].imgSrc}
-                link={ContentData[0].link}
-              />
-            </div>
-            <div className="card">
-              <DealsCard
-                title={ContentData[0].title}
-                imgSrc={ContentData[0].imgSrc}
-                link={ContentData[0].link}
-              />
-            </div>
+            {[0, 0, 0, 0, 0, 0, 0, 0, 0, 0].map((v, i) => (
+              <div className="card">
+                <DealsCard key={i} />
+              </div>
+            ))}
           </span>
         </div>
       </DealsBlock>
@@ -74,7 +46,7 @@ const Content = ({ className }) => {
   );
 };
 
-export default Content;
+export default LandingPage;
 
 const DealsBlock = styled.div`
   display: flex;

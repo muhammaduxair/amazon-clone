@@ -63,6 +63,10 @@ const NavContainer = styled.nav`
          margin:0 7px;
          text-transform:capitalize;
          font-size:12px;
+         &:hover{
+           cursor:pointer;
+           text-decoration:underline;
+         }
        }
     }
   }

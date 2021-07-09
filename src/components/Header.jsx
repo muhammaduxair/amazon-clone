@@ -4,6 +4,7 @@ import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import { useRef, useState } from "react";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import { Link } from "react-router-dom";
 
 const Header = ({ cartItemsLength }) => {
   const selectListREF = useRef(null);
@@ -32,7 +33,9 @@ const Header = ({ cartItemsLength }) => {
   return (
     <Container>
       <NavLeft>
-        <img src="/logo.svg" alt="amazon logo" />
+        <Link to="/">
+          <img src="/logo.svg" alt="amazon logo" />
+        </Link>
         <span>
           <RoomOutlinedIcon htmlColor="#fff" fontSize="small" />
           <div>
@@ -105,13 +108,15 @@ const Header = ({ cartItemsLength }) => {
           <p>Returns</p>
           <b>& Orders</b>
         </div>
-        <div>
-          <ShoppingCartIcon htmlColor="#fff" />
-          <p>
-            <b>{cartItemsLength}</b>
-            <b>Cart</b>
-          </p>
-        </div>
+        <Link to="/cart">
+          <div>
+            <ShoppingCartIcon htmlColor="#fff" />
+            <p>
+              <b>{cartItemsLength}</b>
+              <b>Cart</b>
+            </p>
+          </div>
+        </Link>
       </NavRight>
     </Container>
   );
@@ -148,27 +153,33 @@ const NavRight = styled.div`
       font-weight: 700;
     }
   }
-  > div:nth-child(4) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    &:hover > p {
-      margin-bottom: 5px;
+  > a {
+    &:active,
+    &:focus {
+      text-decoration: none;
     }
-    > svg {
-      font-size: 35px;
-    }
-    > p {
-      font-size: 12px;
-      color: #fff;
-      font-weight: bold;
-      margin: auto 0 3px -3px;
+    > div {
       display: flex;
-      flex-direction: column;
-      > b:first-child {
-        margin: 0 0 5px 5px;
-        font-size: 14px;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      &:hover > p {
+        margin-bottom: 5px;
+      }
+      > svg {
+        font-size: 35px;
+      }
+      > p {
+        font-size: 12px;
+        color: #fff;
+        font-weight: bold;
+        margin: auto 0 3px -3px;
+        display: flex;
+        flex-direction: column;
+        > b:first-child {
+          margin: 0 0 5px 5px;
+          font-size: 14px;
+        }
       }
     }
   }
@@ -250,11 +261,14 @@ const NavLeft = styled.div`
   align-items: center;
   background: #131921;
   width: 210px;
-  > img {
+  > a {
     height: 100%;
-    -webkit-user-drag: none;
-    user-select: none;
     padding: 2px;
+    > img {
+      -webkit-user-drag: none;
+      user-select: none;
+      height: 100%;
+    }
   }
   > span {
     display: flex;

@@ -3,7 +3,7 @@ import StarIcon from "@material-ui/icons/Star";
 import StarHalfIcon from "@material-ui/icons/StarHalf";
 import { GoldenButton } from "./GlobalComponents";
 
-const DealsCard = ({ link, imgSrc, title }) => {
+const DealsCard = () => {
   return (
     <Card>
       <div className="imgBox">
@@ -14,11 +14,11 @@ const DealsCard = ({ link, imgSrc, title }) => {
       </div>
       <div className="content_box">
         <p className="token">DEAL OF THE DAY</p>
-        <p className="price">$22.99 - $23.99</p>
-        <p className="end">Ends in 20:11:18</p>
-        <a href="#" className="articleLink">
-          Save on ThisWorx Portable Car Vacuums
-        </a>
+        <h4 className="title">
+          SAMSUNG Galaxy S21+ Plus 5G Factory Unlocked Android Cell Phone 128GB
+          US Version Smartphone Pro-Grade Camera 8K Video 12MP High Res, Phantom
+          Silver
+        </h4>
         <a href="#" className="starbox">
           <StarIcon />
           <StarIcon />
@@ -26,6 +26,13 @@ const DealsCard = ({ link, imgSrc, title }) => {
           <StarIcon />
           <StarHalfIcon />
           152317
+        </a>
+        <p className="price">
+          <sup>$</sup>550<sup>99</sup>
+        </p>
+        <p className="end">Ship to Pakistan</p>
+        <a href="#" className="articleLink">
+          Save on ThisWorx Portable Car Vacuums
         </a>
       </div>
       <GoldenButton width="100%" padding="7px">
@@ -58,7 +65,7 @@ const Card = styled.div`
     }
   }
   > .content_box {
-    min-height: 150px;
+    min-height: 250px;
     > .token {
       background: #c45500;
       padding: 3px 8px 3px 5px;
@@ -68,10 +75,19 @@ const Card = styled.div`
       width: fit-content;
       clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
     }
+    > .title {
+      font-size: 15px;
+      margin: 7px 0;
+      font-weight: 500;
+      color: #0f1111;
+    }
     > .price {
-      color: #cc1c39;
+      color: #0f1111;
       font-size: 16px;
-      padding: 3px 0 5px 0;
+      padding-bottom: 5px;
+      > sup {
+        font-size: 11px;
+      }
     }
     > .end {
       font-size: 10px;
@@ -88,7 +104,7 @@ const Card = styled.div`
       align-items: center;
       font-size: 12px;
       color: #0f1111;
-      margin-top: 7px;
+      margin-bottom: 5px;
       svg {
         color: #fdc503;
         stroke: #c9911c;
